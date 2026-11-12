@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <h1>My Todo</h1>
+        <button type="button" id="trash-open" class="trash-open">🗑 휴지통 <span id="trash-count">0</span></button>
+    </header>
+
+    <main class="container">
+        <!-- 등록 / 수정 폼 -->
+        <section class="form-box">
+            <h2 id="form-title">할 일 등록</h2>
+            <form id="todo-form">
+                <label for="todo-date">날짜</label>
+                <input type="date" id="todo-date">
+
+                <label for="todo-title">제목</label>
+                <input type="text" id="todo-title" placeholder="제목을 입력하세요">
+
+                <label for="todo-content">내용</label>
+                <textarea id="todo-content" placeholder="내용을 입력하세요"></textarea>
+
+                <div class="form-buttons">
+                    <button type="submit" id="submit-btn" class="primary">등록하기</button>
+                    <button type="button" id="cancel-btn" class="hidden">취소</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- 목록 -->
+        <section>
+            <div class="list-top">
+                <div class="filters">
+                    <button type="button" class="filter-btn active" data-filter="all">전체</button>
+                    <button type="button" class="filter-btn" data-filter="active">진행중</button>
+                    <button type="button" class="filter-btn" data-filter="done">완료</button>
+                </div>
+                <select id="sort-select" aria-label="정렬">
+                    <option value="new">최근 등록순</option>
+                    <option value="date">날짜순</option>
+                </select>
+            </div>
+
+            <p id="todo-count" class="todo-count"></p>
+            <ul id="todo-list" class="todo-list"></ul>
+        </section>
+    </main>
+
+    <!-- 휴지통 -->
+    <dialog id="trash-dialog">
+        <h2>휴지통</h2>
+        <ul id="trash-list" class="trash-list"></ul>
+        <button type="button" id="trash-close">닫기</button>
+    </dialog>
+
+    <script src="js/todo.js"></script>
+</body>
+</html>
